@@ -74,3 +74,7 @@ showCurrent();
 });
  
 });
+// ---------------------------ow carrousel--
+$(document).ready(function(){
+  $(".owl-carousel").owlCarousel();
+});
