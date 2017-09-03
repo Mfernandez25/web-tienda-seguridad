@@ -78,3 +78,48 @@ showCurrent();
 $(document).ready(function(){
   $(".owl-carousel").owlCarousel();
 });
+
+var owl = $('.owl-carousel');
+owl.owlCarousel({
+    items:6,
+    loop:true,
+    margin:10,
+    autoPlay:true,
+    autoWidth:true,
+    autoplayTimeout:1000,
+    autoplayHoverPause:true
+});
+$('.play').on('click',function(){
+  owl.trigger('play.owl.autoplay',[1000])
+})
+$('.stop').on('click',function(){
+  owl.trigger('stop.owl.autoplay')
+})
+
+// ---------------------------filtering--
+$(document).ready(function(){
+
+  $(".filter-button").click(function(){
+    var value = $(this).attr('data-filter');
+    
+    if(value == "all")
+    {
+            //$('.filter').removeClass('hidden');
+            $('.filter').show('1000');
+          }
+          else
+          {
+//            $('.filter[filter-item="'+value+'"]').removeClass('hidden');
+//            $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
+$(".filter").not('.'+value).hide('3000');
+$('.filter').filter('.'+value).show('3000');
+
+}
+});
+  
+  if ($(".filter-button").removeClass("active")) {
+    $(this).removeClass("active");
+  }
+  $(this).addClass("active");
+
+});
